@@ -1,0 +1,80 @@
+/* About.module.scss */
+
+.wrapper {
+    width: 100%;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h1 {
+        font-size: 3em;
+        margin: 40px 0;
+        color: #333333;
+        font-weight: bold;
+        position: relative;
+        display: inline-block;
+    }
+
+    h1::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: #ff6f61;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    h3 {
+        font-size: 2em;
+        margin: 30px 0;
+        color: #555555;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin: 20px 0;
+        line-height: 1.8;
+        text-align: justify;
+        color: #666666;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 40px;
+        text-align: left;
+        margin: 30px 0;
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+            font-size: 1.2em;
+            color: #666666;
+        }
+    }
+
+    .main-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 40px 0;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+}

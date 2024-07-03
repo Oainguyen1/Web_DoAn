@@ -1,0 +1,56 @@
+@import 'normalize.css';
+
+:root {
+    --primary: #fcaf17;
+    --black: #000;
+    --text-color: #11006f;
+    --orange: orange;
+    --price-color: #cd151c;
+    --original-price: #8a8a8f;
+    --login-btn: #ffa726;
+    --login-btn-hover: #fb8c00;
+    --background-login: #fafcd3;
+    --white: #fff;
+    --placeholder-color: #ccc;
+}
+
+@font-face {
+    font-family: SVN-Gilroy;
+    src: url('/assets/font/svn-gilroy_regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: SVN-Gilroy-Bold;
+    src: url('/assets/font/svn-gilroy_semibold.ttf');
+    font-weight: 700;
+}
+// @font-face {
+//     font-family: SVN-Gilroy;
+//     src: url('/src/assets/Logo/svn-gilroy_medium.ttf');
+//     font-weight: 700;
+// }
+// @font-face {
+//     font-family: SVN-Gilroy;
+//     src: url('/src/assets/Logo/svn-gilroy_semibold.ttf');
+//     font-weight: 700;
+// }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+a[href] {
+    text-decoration: none;
+}

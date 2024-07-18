@@ -25,21 +25,38 @@ function Header() {
                 </div>
                 <div className={cx('action')}>
                     <a href="./saleup">
-                        <h1>Sale up to 30% </h1>
+                        <h1>Sale up to 30%</h1>
                     </a>
-                    <a href="./boy">
-                        <h1>Nam </h1>
-                    </a>
-                    <a href="./girl">
-                        <h1>Nữ</h1>
-                    </a>
-                    <a href="./children">
-                        <h1>Trẻ em </h1>
-                    </a>
+                    <div className={cx('dropdown')}>
+                        <a href="./boy">
+                            <h1>Nam</h1>
+                        </a>
+                        <div className={cx('dropdown-content')}>
+                            <a href="./boy">Áo Polo</a>
+                            <a href="./boy/shirt">Áo Sơ Mi</a>
+                        </div>
+                    </div>
+                    <div className={cx('dropdown')}>
+                        <a href="./girl">
+                            <h1>Nữ</h1>
+                        </a>
+                        <div className={cx('dropdown-content')}>
+                            <a href="./girl/dress">Váy</a>
+                            <a href="./girl/skirt">Chân Váy</a>
+                        </div>
+                    </div>
+                    <div className={cx('dropdown')}>
+                        <a href="./children">
+                            <h1>Trẻ em</h1>
+                        </a>
+                        <div className={cx('dropdown-content')}>
+                            <a href="./children">Bé Trai</a>
+                            <a href="./children/girl">Bé Gái</a>
+                        </div>
+                    </div>
                     <a href="./about">
-                        <h1>Giới thiệu </h1>
+                        <h1>Giới thiệu</h1>
                     </a>
-
                     <div className={cx('cart-container')}>
                         <a className={cx('cart')} href="./cart">
                             <FontAwesomeIcon icon={faCartShopping} />

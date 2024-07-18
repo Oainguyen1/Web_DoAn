@@ -3,10 +3,10 @@ import styles from './SaleUp.module.scss';
 import saleIcon from '~/assets/Logo/sale_icon.png';
 import banner from '~/assets/Banner/flash_sale_banner.png';
 import Produce from '~/assets/SaleProduce/produce.png';
+import Produce1 from '~/assets/SaleProduce/produce1.png';
 import Produce2 from '~/assets/SaleProduce/produce2.png';
 import Produce3 from '~/assets/SaleProduce/produce3.png';
 import Produce4 from '~/assets/SaleProduce/produce4.png';
-import Produce5 from '~/assets/SaleProduce/produce5.png';
 
 const cx = classNames.bind(styles);
 
@@ -15,13 +15,37 @@ const produceData = [
         src: Produce,
         title: 'Áo chống nắng đa năng Anti UV - Versatile',
         url: '/ao',
-        price: '100,000 VND',
-        previousPrices: '140,000VND',
+        price: '139,000 VND',
+        previousPrices: '220,000VND',
     },
-    { src: Produce2, title: 'Áo 2', url: '/ao2', price: '200,000 VND', previousPrices: '140,000VND' },
-    { src: Produce3, title: 'Áo 3', url: '/ao3', price: '300,000 VND', previousPrices: '140,000VND' },
-    { src: Produce4, title: 'Áo 4', url: '/ao4', price: '400,000 VND', previousPrices: '140,000VND' },
-    { src: Produce5, title: 'Áo 2', url: '/ao2', price: '200,000 VND', previousPrices: '140,000VND' },
+    { 
+        src: Produce1, 
+        title: 'Áo Polo Thể Thao Nam In Vai Phản Quang', 
+        url: '/ao2', 
+        price: '299,000 VND', 
+        previousPrices: '350,000VND' 
+    },
+    { 
+        src: Produce2, 
+        title: 'Áo Chống Nắng Nam Có Mũ', 
+        url: '/ao3', 
+        price: '139,000 VND', 
+        previousPrices: '220,000VND' 
+    },
+    { 
+        src: Produce3, 
+        title: 'Sơ Mi Tay Dài Nam Knit', 
+        url: '/ao4', 
+        price: '299,000 VND', 
+        previousPrices: '390,000VND' 
+    },
+    { 
+        src: Produce4, 
+        title: 'Polo Nam Cafe Dệt Tổ Ong Mickey In Ngực', 
+        url: '/ao2', 
+        price: '249,000 VND', 
+        previousPrices: '320,000VND' 
+    },
 ];
 
 function SaleUp() {

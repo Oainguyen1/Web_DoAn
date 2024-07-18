@@ -12,35 +12,35 @@ const produceData = [
     {
         src: Boy,
         title: 'Áo Polo Nam In Họa Tiết Ngôi Sao',
-        url: '/ao',
+        url: '/Product-detail',
         price: '350,000 VND',
         // previousPrices: '140,000VND',
     },
     { 
         src: Boy1, 
         title: 'Áo Polo Thể Thao Nam In Vai Phản Quang', 
-        url: '/ao2', 
+        url: '/Product-detail', 
         price: '299,000 VND', 
         previousPrices: '350,000VND' 
     },
     { 
         src: Boy2, 
         title: 'Polo Thể Thao Nam Phối Lé Nổi Bật', 
-        url: '/ao3', 
+        url: '/Product-detail', 
         price: '299,000 VND', 
         // previousPrices: '140,000VND' 
     },
     { 
         src: Boy3, 
         title: 'Áo Polo Nam Mắt Chim Phối Vai Hoạ Tiết Monogram', 
-        url: '/ao4', 
+        url: '/Product-detail', 
         price: '258,000 VND', 
         previousPrices: '369,000VND' 
     },
     { 
         src: Boy4, 
         title: 'Áo Phông Nam Let Nature Lead', 
-        url: '/ao2', 
+        url: '/Product-detail', 
         price: '199,000 VND', 
         previousPrices: '250,000VND' 
     },
@@ -54,7 +54,7 @@ function SaleUp() {
                     <h1>Thời Trang Nam</h1>
                 </div>
                 <div className={cx('title-block')}>
-                    <h1>Đề Xuất Dành Cho Bạn</h1>
+                    <h1>Áo Polo Nam</h1>
                 </div>
                 <div className={cx('image-container')}>
                     <div className={cx('images-produce')}>

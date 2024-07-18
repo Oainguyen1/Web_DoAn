@@ -8,6 +8,7 @@ import flashSale from '~/assets/Logo/sale_icon.png';
 import titleImage from '~/assets/Title/flash_sale.png';
 import titleImage2 from '~/assets/Title/best_seller.png';
 import Produce from '~/assets/SaleProduce/produce.png';
+import Produce1 from '~/assets/SaleProduce/produce1.png';
 import Produce2 from '~/assets/SaleProduce/produce2.png';
 import Produce3 from '~/assets/SaleProduce/produce3.png';
 import Produce4 from '~/assets/SaleProduce/produce4.png';
@@ -27,13 +28,38 @@ const produceData = [
     {
         src: Produce,
         title: 'Áo chống nắng đa năng Anti UV - Versatile',
-        url: '/ao',
-        price: '100,000 VND',
-        previousPrices: '140,000VND',
+        url: '/Product-detail',
+        price: '139,000 VND',
+        previousPrices: '220,000VND',
     },
-    { src: Produce2, title: 'Áo 2', url: '/product-detail', price: '200,000 VND', previousPrices: '140,000VND' },
-    { src: Produce3, title: 'Áo 3', url: '/ao3', price: '300,000 VND', previousPrices: '140,000VND' },
-    { src: Produce4, title: 'Áo 4', url: '/ao4', price: '400,000 VND', previousPrices: '140,000VND' },
+    { 
+        src: Produce1, 
+        title: 'Áo Polo Thể Thao Nam In Vai Phản Quang', 
+        url: '/Product-detail', 
+        price: '299,000 VND', 
+        previousPrices: '350,000VND' 
+    },
+    { 
+        src: Produce2, 
+        title: 'Áo Chống Nắng Nam Có Mũ', 
+        url: '/Product-detail', 
+        price: '139,000 VND', 
+        previousPrices: '220,000VND' 
+    },
+    { 
+        src: Produce3, 
+        title: 'Sơ Mi Tay Dài Nam Knit', 
+        url: '/Product-detail', 
+        price: '299,000 VND', 
+        previousPrices: '390,000VND' 
+    },
+    // { 
+    //     src: Produce4, 
+    //     title: 'Polo Nam Cafe Dệt Tổ Ong Mickey In Ngực', 
+    //     url: '/ao2', 
+    //     price: '249,000 VND', 
+    //     previousPrices: '320,000VND' 
+    // },
 ];
 
 function Home() {

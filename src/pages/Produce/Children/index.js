@@ -12,35 +12,35 @@ const produceData = [
     {
         src: Children,
         title: 'Áo Polo Trẻ Em Coolmax Siêu Mát Phối Bo',
-        url: '/ao',
+        url: '/Product-detail',
         price: '169,000 VND',
         previousPrices: '199,000VND',
     },
     { 
         src: Children1, 
         title: 'Polo Trẻ Em Họa Tiết In Tràn', 
-        url: '/ao2', 
+        url: '/Product-detail', 
         price: '199,000 VND', 
         // previousPrices: '200,000VND' 
     },
     { 
         src: Children2, 
         title: 'Sơ Mi Trẻ Em Phối Mũ Nỉ', 
-        url: '/ao3', 
+        url: '/Product-detail', 
         price: '199,000 VND', 
         // previousPrices: '220,000VND' 
     },
     { 
         src: Children3, 
         title: 'Áo Sơ Mi Trẻ Em In Hình Tay Liền', 
-        url: '/ao4', 
+        url: '/Product-detail', 
         price: '99,000 VND', 
         previousPrices: '179,000VND' 
     },
     { 
         src: Children4, 
         title: 'Quần Dài Trẻ Em Kaki Túi Sườn', 
-        url: '/ao2', 
+        url: '/Product-detail', 
         price: '299,000 VND', 
         // previousPrices: '320,000VND' 
     },

@@ -2,10 +2,6 @@ import classNames from 'classnames/bind';
 import styles from './Product_detail.module.scss';
 import React, { useState } from 'react';
 import detail1 from '~/assets/Product_detail/detail1.jpg';
-// import detail2 from '~/assets/Product_detail/detail2.jpg';
-// import detail3 from '~/assets/Product_detail/detail3.jpg';
-// import detail4 from '~/assets/Product_detail/detail4.jpg';
-// import detail5 from '~/assets/Product_detail/detail5.jpg';
 import detail6 from '~/assets/Product_detail/detail6.jpg';
 import detail7 from '~/assets/Product_detail/detail7.jpg';
 import detail8 from '~/assets/Product_detail/detail8.jpg';
@@ -19,6 +15,7 @@ function Product_detail() {
     const [mainImage, setMainImage] = useState(detail1);
     const [selectedColor, setSelectedColor] = useState('Navy');
     const [selectedSize, setSelectedSize] = useState('M');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const thayDoiSoLuong = (thayDoi) => {
         setSoLuong((soLuongTruoc) => Math.max(1, soLuongTruoc + thayDoi));
@@ -34,6 +31,10 @@ function Product_detail() {
 
     const handleSizeClick = (size) => {
         setSelectedSize(size);
+    };
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
     };
 
     return (
@@ -65,12 +66,12 @@ function Product_detail() {
                         className={cx('thumbnail')}
                         onClick={() => handleThumbnailClick(detail10)}
                     />
-                    {/* <img
-                        src={detail6}
+                    <img
+                        src={detail1}
                         alt="Thumbnail 5"
                         className={cx('thumbnail')}
-                        onClick={() => handleThumbnailClick(detail6)}
-                    /> */}
+                        onClick={() => handleThumbnailClick(detail1)}
+                    />
                 </div>
             </div>
             <div className={cx('product-details')}>
@@ -148,6 +149,7 @@ function Product_detail() {
                             3XL
                         </button>
                     </div>
+                    <button className={cx('size-chart-button')} onClick={toggleModal}>Bảng kích thước</button>
                 </div>
                 <div className={cx('quantity-selector')}>
                     <button onClick={() => thayDoiSoLuong(-1)}>-</button>
@@ -156,7 +158,64 @@ function Product_detail() {
                 </div>
                 <button className={cx('them-vao-gio')}>Thêm vào giỏ</button>
                 <button className={cx('mua-ngay')}>Mua ngay</button>
+                
             </div>
+            {isModalOpen && (
+                <div className={cx('modal')}>
+                    <div className={cx('modal-content')}>
+                        <span className={cx('close')} onClick={toggleModal}>&times;</span>
+                        <h2>Bảng kích thước</h2>
+                        <table className={cx('size-chart')}>
+                            <thead>
+                                <tr>
+                                    <th>Kích thước</th>
+                                    <th>Vòng ngực (cm)</th>
+                                    <th>Chiều dài (cm)</th>
+                                    <th>Vai (cm)</th>
+                                    <th>Tay (cm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>M</td>
+                                    <td>92-96</td>
+                                    <td>68</td>
+                                    <td>42</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>L</td>
+                                    <td>96-100</td>
+                                    <td>70</td>
+                                    <td>44</td>
+                                    <td>21</td>
+                                </tr>
+                                <tr>
+                                    <td>XL</td>
+                                    <td>100-104</td>
+                                    <td>72</td>
+                                    <td>46</td>
+                                    <td>22</td>
+                                </tr>
+                                <tr>
+                                    <td>2XL</td>
+                                    <td>104-108</td>
+                                    <td>74</td>
+                                    <td>48</td>
+                                    <td>23</td>
+                                </tr>
+                                <tr>
+                                    <td>3XL</td>
+                                    <td>108-112</td>
+                                    <td>76</td>
+                                    <td>50</td>
+                                    <td>24</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

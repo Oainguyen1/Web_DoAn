@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 import image from '~/assets/Slide/slide.png';
@@ -11,7 +12,6 @@ import Produce from '~/assets/SaleProduce/produce.png';
 import Produce1 from '~/assets/SaleProduce/produce1.png';
 import Produce2 from '~/assets/SaleProduce/produce2.png';
 import Produce3 from '~/assets/SaleProduce/produce3.png';
-import Produce4 from '~/assets/SaleProduce/produce4.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -28,37 +28,38 @@ const produceData = [
     {
         src: Produce,
         title: 'Áo chống nắng đa năng Anti UV - Versatile',
-        url: '/Product-detail',
+        url: '/product-detail/669a24e0cdf6d79d165e9deb',
         price: '139,000 VND',
         previousPrices: '220,000VND',
     },
-    { 
-        src: Produce1, 
-        title: 'Áo Polo Thể Thao Nam In Vai Phản Quang', 
-        url: '/Product-detail', 
-        price: '299,000 VND', 
-        previousPrices: '350,000VND' 
+    {
+        src: Produce1,
+        title: 'Áo Polo Thể Thao Nam In Vai Phản Quang',
+        url: '/product-detail/669a24e0cdf6d79d165e9deb',
+        price: '299,000 VND',
+        previousPrices: '350,000VND',
     },
-    { 
-        src: Produce2, 
-        title: 'Áo Chống Nắng Nam Có Mũ', 
-        url: '/Product-detail', 
-        price: '139,000 VND', 
-        previousPrices: '220,000VND' 
+    {
+        src: Produce2,
+        title: 'Áo Chống Nắng Nam Có Mũ',
+        url: '/Product-detail/669a24e0cdf6d79d165e9deb',
+        price: '139,000 VND',
+        previousPrices: '220,000VND',
     },
-    { 
-        src: Produce3, 
-        title: 'Sơ Mi Tay Dài Nam Knit', 
-        url: '/Product-detail', 
-        price: '299,000 VND', 
-        previousPrices: '390,000VND' 
+    {
+        src: Produce3,
+        title: 'Sơ Mi Tay Dài Nam Knit',
+        url: '/Product-detail/669a24e0cdf6d79d165e9deb',
+        price: '299,000 VND',
+        previousPrices: '390,000VND',
     },
-    // { 
-    //     src: Produce4, 
-    //     title: 'Polo Nam Cafe Dệt Tổ Ong Mickey In Ngực', 
-    //     url: '/ao2', 
-    //     price: '249,000 VND', 
-    //     previousPrices: '320,000VND' 
+
+    // {
+    //     src: Produce4,
+    //     title: 'Polo Nam Cafe Dệt Tổ Ong Mickey In Ngực',
+    //     url: '/Product-detail/669a24e0cdf6d79d165e9deb',
+    //     price: '249,000 VND',
+    //     previousPrices: '320,000VND'
     // },
 ];
 
@@ -72,13 +73,16 @@ function Home() {
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
     };
+
     useEffect(() => {
         const interval = setInterval(nextSlide, 3000);
         return () => clearInterval(interval);
     }, []);
+
     const handleClick = () => {
         window.location.href = images[currentIndex].url;
     };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
@@ -114,9 +118,9 @@ function Home() {
                                     {produceData.map((item, index) => (
                                         <div key={index} className={cx('produce-item')}>
                                             <img src={item.src} alt={`Produce ${index + 1}`} />
-                                            <a href={item.url}>
+                                            <Link to={item.url}>
                                                 <h3>{item.title}</h3>
-                                            </a>
+                                            </Link>
                                             <div className={cx('price-container')}>
                                                 <span className={cx('discounted-price')}>{item.price}</span>
                                                 <span className={cx('original-price')}>{item.previousPrices}</span>
@@ -136,9 +140,9 @@ function Home() {
                                     {produceData.map((item, index) => (
                                         <div key={index} className={cx('produce-item')}>
                                             <img src={item.src} alt={`Produce ${index + 1}`} />
-                                            <a href={item.url}>
+                                            <Link to={item.url}>
                                                 <h3>{item.title}</h3>
-                                            </a>
+                                            </Link>
                                             <div className={cx('price-container')}>
                                                 <span className={cx('discounted-price')}>{item.price}</span>
                                                 <span className={cx('original-price')}>{item.previousPrices}</span>

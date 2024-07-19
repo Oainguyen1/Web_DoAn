@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import image from '~/assets/Logo/logo.png';
@@ -12,9 +14,9 @@ function Header() {
             <div className={cx('content')}>
                 <div className={cx('top-row')}>
                     <div className={cx('logo')}>
-                        <a href="./">
+                        <Link to="/">
                             <img height="60px" src={image} alt="Logo" />
-                        </a>
+                        </Link>
                     </div>
                     <div className={cx('search')}>
                         <input placeholder="Tìm kiếm"></input>
@@ -24,53 +26,53 @@ function Header() {
                     </div>
                 </div>
                 <div className={cx('action')}>
-                    <a href="./saleup">
+                    <Link to="/saleup">
                         <h1>Sale up to 30%</h1>
-                    </a>
+                    </Link>
                     <div className={cx('dropdown')}>
-                        <a href="./boy">
+                        <Link to="/boy">
                             <h1>Nam</h1>
-                        </a>
+                        </Link>
                         <div className={cx('dropdown-content')}>
-                            <a href="./boy">Áo Polo</a>
-                            <a href="./boy/shirt">Áo Sơ Mi</a>
+                            <Link to="/boy">Áo Polo</Link>
+                            <Link to="/boy">Áo Sơ Mi</Link>
                         </div>
                     </div>
                     <div className={cx('dropdown')}>
-                        <a href="./girl">
+                        <Link to="/girl">
                             <h1>Nữ</h1>
-                        </a>
+                        </Link>
                         <div className={cx('dropdown-content')}>
-                            <a href="./girl/dress">Váy</a>
-                            <a href="./girl/skirt">Chân Váy</a>
+                            <Link to="/girl">Váy</Link>
+                            <Link to="/girl">Chân Váy</Link>
                         </div>
                     </div>
                     <div className={cx('dropdown')}>
-                        <a href="./children">
+                        <Link to="/children">
                             <h1>Trẻ em</h1>
-                        </a>
+                        </Link>
                         <div className={cx('dropdown-content')}>
-                            <a href="./children">Bé Trai</a>
-                            <a href="./children/girl">Bé Gái</a>
+                            <Link to="/children">Bé Trai</Link>
+                            <Link to="/children">Bé Gái</Link>
                         </div>
                     </div>
-                    <a href="./about">
+                    <Link to="/about">
                         <h1>Giới thiệu</h1>
-                    </a>
+                    </Link>
                     <div className={cx('cart-container')}>
-                        <a className={cx('cart')} href="./cart">
+                        <Link className={cx('cart')} to="/cart">
                             <FontAwesomeIcon icon={faCartShopping} />
-                        </a>
+                        </Link>
                         <div className={cx('badge')}>0</div>
                     </div>
                     <div className={cx('user')}>
-                        <a href="./login">
+                        <Link to="/login">
                             <h1>Đăng nhập</h1>
-                        </a>
+                        </Link>
                         <h1>/</h1>
-                        <a href="./signin">
+                        <Link to="/signin">
                             <h1>Đăng Ký</h1>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

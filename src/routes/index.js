@@ -20,7 +20,7 @@ const publicRoutes = [
     { path: '/signin', component: Signin },
     { path: '/about', component: About },
     { path: '/saleup', component: SaleUp },
-    { path: '/product-detail', component: Product_detail },
+    { path: '/product-detail/:id', component: Product_detail },
 ];
 
 //Private Routes

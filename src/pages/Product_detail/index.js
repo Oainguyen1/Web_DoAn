@@ -1,6 +1,9 @@
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './Product_detail.module.scss';
-import React, { useState } from 'react';
 import detail1 from '~/assets/Product_detail/detail1.jpg';
 import detail6 from '~/assets/Product_detail/detail6.jpg';
 import detail7 from '~/assets/Product_detail/detail7.jpg';
@@ -16,6 +19,8 @@ function Product_detail() {
     const [selectedColor, setSelectedColor] = useState('Navy');
     const [selectedSize, setSelectedSize] = useState('M');
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { id } = useParams();
+    const [product, setProduct] = useState(null);
 
     const thayDoiSoLuong = (thayDoi) => {
         setSoLuong((soLuongTruoc) => Math.max(1, soLuongTruoc + thayDoi));
@@ -36,6 +41,38 @@ function Product_detail() {
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     };
+
+    // const dispatch = useDispatch();
+    // const CartProducts = useSelector((state) => state.cart.CartArr);
+
+    useEffect(() => {
+        const fetchProductDetails = async () => {
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/product/get-details/${id}`);
+                setProduct(response.data.data);
+            } catch (error) {
+                console.error('Error fetching product details:', error);
+            }
+        };
+
+        fetchProductDetails();
+    }, [id]);
+
+    // const handleAddToCart = () => {
+    //     const product = {
+    //         id: '669a24e0cdf6d79d165e9deb', // ID sản phẩm từ database
+    //         image: '/path/to/image.jpg', // URL ảnh sản phẩm
+    //         color: selectedColor,
+    //         size: selectedSize,
+    //         price: 399000, // Giá sản phẩm
+    //         quantity: 1,
+    //     };
+    //     dispatch(addProduct(product));
+    // };
+
+    if (!product) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className={cx('product-page')}>
@@ -75,40 +112,39 @@ function Product_detail() {
                 </div>
             </div>
             <div className={cx('product-details')}>
-                <h3>Áo Polo nam</h3>
-                <p>SKU: 123456789</p>
-                <p>Áo Polo nam, kiểu dáng đơn giản, thoải mái, phù hợp mặc ở nhà, đi chơi, dạo phố.</p>
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
                 <h4>Giá bán:</h4>
-                <h2>399.000 ₫</h2>
+                <h2>{product.price} ₫</h2>
                 <div className={cx('color-options')}>
                     <p>Màu sắc: {selectedColor}</p>
                     <div className={cx('color-buttons')}>
-                        <button 
-                            className={cx('color-button', { active: selectedColor === 'Navy' })} 
+                        <button
+                            className={cx('color-button', { active: selectedColor === 'Navy' })}
                             onClick={() => handleColorClick('Navy')}
                         >
                             Navy
                         </button>
-                        <button 
-                            className={cx('color-button', { active: selectedColor === 'Đen' })} 
+                        <button
+                            className={cx('color-button', { active: selectedColor === 'Đen' })}
                             onClick={() => handleColorClick('Đen')}
                         >
                             Đen
                         </button>
-                        <button 
-                            className={cx('color-button', { active: selectedColor === 'Trắng' })} 
+                        <button
+                            className={cx('color-button', { active: selectedColor === 'Trắng' })}
                             onClick={() => handleColorClick('Trắng')}
                         >
                             Trắng
                         </button>
-                        <button 
-                            className={cx('color-button', { active: selectedColor === 'Cam' })} 
+                        <button
+                            className={cx('color-button', { active: selectedColor === 'Cam' })}
                             onClick={() => handleColorClick('Cam')}
                         >
                             Cam
                         </button>
-                        <button 
-                            className={cx('color-button', { active: selectedColor === 'Xanh' })} 
+                        <button
+                            className={cx('color-button', { active: selectedColor === 'Xanh' })}
                             onClick={() => handleColorClick('Xanh')}
                         >
                             Xanh
@@ -118,38 +154,40 @@ function Product_detail() {
                 <div className={cx('size-options')}>
                     <p>Kích thước: {selectedSize}</p>
                     <div className={cx('size-buttons')}>
-                        <button 
-                            className={cx('size-button', { active: selectedSize === 'M' })} 
+                        <button
+                            className={cx('size-button', { active: selectedSize === 'M' })}
                             onClick={() => handleSizeClick('M')}
                         >
                             M
                         </button>
-                        <button 
-                            className={cx('size-button', { active: selectedSize === 'L' })} 
+                        <button
+                            className={cx('size-button', { active: selectedSize === 'L' })}
                             onClick={() => handleSizeClick('L')}
                         >
                             L
                         </button>
-                        <button 
-                            className={cx('size-button', { active: selectedSize === 'XL' })} 
+                        <button
+                            className={cx('size-button', { active: selectedSize === 'XL' })}
                             onClick={() => handleSizeClick('XL')}
                         >
                             XL
                         </button>
-                        <button 
-                            className={cx('size-button', { active: selectedSize === '2XL' })} 
+                        <button
+                            className={cx('size-button', { active: selectedSize === '2XL' })}
                             onClick={() => handleSizeClick('2XL')}
                         >
                             2XL
                         </button>
-                        <button 
-                            className={cx('size-button', { active: selectedSize === '3XL' })} 
+                        <button
+                            className={cx('size-button', { active: selectedSize === '3XL' })}
                             onClick={() => handleSizeClick('3XL')}
                         >
                             3XL
                         </button>
                     </div>
-                    <button className={cx('size-chart-button')} onClick={toggleModal}>Bảng kích thước</button>
+                    <button className={cx('size-chart-button')} onClick={toggleModal}>
+                        Bảng kích thước
+                    </button>
                 </div>
                 <div className={cx('quantity-selector')}>
                     <button onClick={() => thayDoiSoLuong(-1)}>-</button>
@@ -158,12 +196,13 @@ function Product_detail() {
                 </div>
                 <button className={cx('them-vao-gio')}>Thêm vào giỏ</button>
                 <button className={cx('mua-ngay')}>Mua ngay</button>
-                
             </div>
             {isModalOpen && (
                 <div className={cx('modal')}>
                     <div className={cx('modal-content')}>
-                        <span className={cx('close')} onClick={toggleModal}>&times;</span>
+                        <span className={cx('close')} onClick={toggleModal}>
+                            &times;
+                        </span>
                         <h2>Bảng kích thước</h2>
                         <table className={cx('size-chart')}>
                             <thead>

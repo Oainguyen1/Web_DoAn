@@ -1,0 +1,145 @@
+// $primary-color: #ffa726; // Light orange
+// $secondary-color: #fb8c00; // Darker orange
+// var(--white): #ffffff;
+// $border-color: #ccc;
+// var(--text-color): #333;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$transition-time: 0.3s;
+
+// var(--google-color): #db4437;
+// $facebook-color: #3b5998;
+
+// Mixin for a smooth transition
+@mixin transition($property) {
+    transition: $property $transition-time ease-in-out;
+}
+
+.wrapper {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--background-login);
+    margin-top: 70px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: var(--white);
+    box-shadow: $box-shadow;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.title {
+    margin-bottom: 20px;
+    font-family: 'SVN-Gilroy', sans-serif;
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-family: 'SVN-Gilroy', sans-serif;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--placeholder-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'SVN-Gilroy', sans-serif;
+
+    &:focus {
+        border-color: var(--login-btn);
+        outline: none;
+    }
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--login-btn);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    @include transition(--background-login);
+
+    &:hover {
+        background-color: var(--login-btn-hover);
+    }
+}
+.buttony {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffa726;
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-family: 'SVN-Gilroy', sans-serif;
+    cursor: pointer;
+    font-weight: bold;
+    @include transition(--background-login);
+
+    &:hover {
+        background-color: var(--login-btn-hover);
+    }
+}
+
+.extra-options {
+    margin-top: 10px;
+    text-align: right;
+
+    .forgot-password {
+        color: var(--login-btn);
+        text-decoration: none;
+        font-size: 1.5rem;
+        @include transition(color);
+        font-family: 'SVN-Gilroy-Bold', sans-serif;
+
+        &:hover {
+            color: var(--login-btn-hover);
+        }
+    }
+}
+
+.signup-prompt {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-family: 'SVN-Gilroy', sans-serif;
+
+    .signup-link {
+        color: var(--login-btn);
+        text-decoration: none;
+        font-weight: bold;
+        @include transition(color);
+
+        &:hover {
+            color: var(--login-btn-hover);
+        }
+    }
+}

@@ -1,0 +1,242 @@
+.checkout-wrapper {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+
+    .cart-summary {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 100%;
+        max-width: 800px;
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            font-family: 'SVN-Gilroy', sans-serif;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-family: 'SVN-Gilroy', sans-serif;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+
+            li {
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #eee;
+                padding: 10px 0;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                    margin-right: 15px;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    p {
+                        margin: 0 15px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            margin-top: 20px;
+        }
+
+        .checkout-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .address-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .payment-section {
+            flex: 1;
+        }
+
+        .add-address-button {
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+
+            &:hover {
+                background-color: var(--login-btn-hover);
+            }
+        }
+
+        .saved-address {
+            margin-top: 20px;
+
+            h4 {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            p {
+                margin: 5px 0;
+                font-size: 16px;
+            }
+        }
+
+        .payment-methods {
+            label {
+                display: block;
+                margin-bottom: 10px;
+                font-size: 16px;
+
+                input {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .confirm-payment {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+
+            button {
+                padding: 10px 20px;
+                background-color: var(--primary);
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--login-btn-hover);
+                }
+            }
+        }
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 500px;
+        position: relative;
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .address-form {
+            display: flex;
+            flex-direction: column;
+
+            input,
+            textarea {
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+
+            button {
+                padding: 10px;
+                background-color: var(--primary);
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--login-btn-hover);
+                }
+            }
+        }
+
+        .success-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--login-btn-hover);
+            }
+        }
+
+        .error-text {
+            color: #d9534f;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
+}

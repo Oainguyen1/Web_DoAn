@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import image from '~/assets/Logo/logo.png';
@@ -9,6 +10,13 @@ import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-i
 const cx = classNames.bind(styles);
 
 function Header() {
+    const cartItems = useSelector((state) => state.cart.CartArr);
+
+    // Calculate the total quantity using map and filter
+    const cartQuantity = (cartItems || [])
+        .map((item) => item.quantity || 0)
+        .filter((quantity) => quantity > 0)
+        .reduce((total, quantity) => total + quantity, 0);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
@@ -63,7 +71,7 @@ function Header() {
                         <Link className={cx('cart')} to="/cart">
                             <FontAwesomeIcon icon={faCartShopping} />
                         </Link>
-                        <div className={cx('badge')}>0</div>
+                        <div className={cx('badge')}>{cartQuantity}</div>
                     </div>
                     <div className={cx('user')}>
                         <Link to="/login">

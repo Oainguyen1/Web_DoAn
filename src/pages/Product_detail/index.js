@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
+import { addProduct } from '~/redux/slice/cartSlice';
 import classNames from 'classnames/bind';
 import styles from './Product_detail.module.scss';
 import detail1 from '~/assets/Product_detail/detail1.jpg';
@@ -19,6 +20,8 @@ function Product_detail() {
     const [selectedColor, setSelectedColor] = useState('Navy');
     const [selectedSize, setSelectedSize] = useState('M');
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
     const { id } = useParams();
     const [product, setProduct] = useState(null);
 
@@ -42,7 +45,7 @@ function Product_detail() {
         setIsModalOpen(!isModalOpen);
     };
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     // const CartProducts = useSelector((state) => state.cart.CartArr);
 
     useEffect(() => {
@@ -58,17 +61,21 @@ function Product_detail() {
         fetchProductDetails();
     }, [id]);
 
-    // const handleAddToCart = () => {
-    //     const product = {
-    //         id: '669a24e0cdf6d79d165e9deb', // ID sản phẩm từ database
-    //         image: '/path/to/image.jpg', // URL ảnh sản phẩm
-    //         color: selectedColor,
-    //         size: selectedSize,
-    //         price: 399000, // Giá sản phẩm
-    //         quantity: 1,
-    //     };
-    //     dispatch(addProduct(product));
-    // };
+    const handleAddToCart = () => {
+        if (product) {
+            const cartProduct = {
+                id: product._id,
+                name: product.name,
+                image: product.image, // Assuming 'image' is a property of the product
+                color: selectedColor,
+                size: selectedSize,
+                price: product.price,
+                quantity: soLuong,
+            };
+            dispatch(addProduct(cartProduct));
+            setIsSuccessModalOpen(true);
+        }
+    };
 
     if (!product) {
         return <div>Loading...</div>;
@@ -194,7 +201,9 @@ function Product_detail() {
                     <span>{soLuong}</span>
                     <button onClick={() => thayDoiSoLuong(1)}>+</button>
                 </div>
-                <button className={cx('them-vao-gio')}>Thêm vào giỏ</button>
+                <button className={cx('them-vao-gio')} onClick={handleAddToCart}>
+                    Thêm vào giỏ
+                </button>
                 <button className={cx('mua-ngay')}>Mua ngay</button>
             </div>
             {isModalOpen && (
@@ -252,6 +261,22 @@ function Product_detail() {
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            )}
+            {isSuccessModalOpen && (
+                <div className={cx('modal')}>
+                    <div className={cx('modal-content')}>
+                        <span className={cx('close')} onClick={() => setIsSuccessModalOpen(false)}>
+                            &times;
+                        </span>
+                        <h2>Thông báo</h2>
+                        <p>Bạn đã thêm sản phẩm vào giỏ hàng thành công!</p>
+                        <div className={cx('success-button-container')}>
+                            <button className={cx('success-button')} onClick={() => setIsSuccessModalOpen(false)}>
+                                OK
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
